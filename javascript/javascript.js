@@ -566,7 +566,7 @@ const translations = {
     },
     ko: {
         Login: "로그인",
-        Logout: "로그아웃",
+        logout: "로그아웃",
         Sign_up: "회원가입",
         select_date:"날짜 선택",
         current_color:"현재 색깔 :",
