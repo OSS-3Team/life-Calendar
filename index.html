@@ -12,7 +12,8 @@
     <script src="javascript/javascript.js"></script>
 </head>
 
-<body>
+
+<body> 
     <header class="header">
         <div class = "logo" >
             <a href="">
@@ -22,7 +23,7 @@
                 </div>
             </a>
         </div>
-
+        
         <div class="nav-container">
             <ul class="nav-list">
                 <li>
@@ -41,12 +42,16 @@
                     <a data-key="logout" href="src/logout_server.php">로그아웃</a>
                 </li>
             </ul>
-            <div id="language-selector">
-                <button onclick="switchLanguage('en')">English</button>
-                <button onclick="switchLanguage('ko')">Korean</button>
-            </div>
+
         </div>
     </header>
+    <div class="language">
+        <select id="language-selector" onchange="switchLanguage(this.value)">
+            <option value="ko">한국어</option>
+            <option value="en">English</option>
+        </select>
+    </div> 
+    
 
     <div class="container">
         <sidebar class="sidebar">
