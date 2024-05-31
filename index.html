@@ -45,13 +45,6 @@
 
         </div>
     </header>
-    <div class="language">
-        <select id="language-selector" onchange="switchLanguage(this.value)">
-            <option value="ko">한국어</option>
-            <option value="en">English</option>
-        </select>
-    </div> 
-    
 
     <div class="container">
         <sidebar class="sidebar">
@@ -124,6 +117,12 @@
         </sidebar>
         <main>
             <div data-key="time" class="indicator-date"></div>
+            <div class="language">
+                <select id="language-selector" onchange="switchLanguage(this.value)">
+                    <option value="ko">한국어</option>
+                    <option value="en">English</option>
+                </select>
+            </div> 
             <div class="calendar">
                 <div class="month"></div>
                 <div class="month"></div>
