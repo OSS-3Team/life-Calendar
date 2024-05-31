@@ -34,7 +34,7 @@ header {
     height: 75px;
     background-color: #e1eaff;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,6 +66,12 @@ header {
     display: inline;
     margin: 0 20px;
     font-size: 15px;
+}
+
+.language{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
 }
 
 sidebar {
