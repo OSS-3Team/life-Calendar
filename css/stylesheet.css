@@ -263,6 +263,42 @@ main {
     background-color: #FFF2E1;
 }
 
+#ano1 {
+    background-color: #a91c1c;
+}
+
+#ano2 {
+    background-color: #c14a35;
+}
+
+#ano3 {
+    background-color: #c19035;
+}
+
+#ano4 {
+    background-color: #b3ac2b;
+}
+
+#ano5 {
+    background-color: #b5c135;
+}
+#ano6 {
+    background-color: #9ec135;
+}
+#ano7 {
+    background-color: #89c135;
+}
+#ano8 {
+    background-color: #51c135;
+}
+
+#ano9 {
+    background-color: #35c164;
+}
+#ano10 {
+    background-color: #35bac1;
+}
+
 .select-color-container {
     width: 100%;
     height: 50px;
