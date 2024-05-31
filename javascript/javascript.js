@@ -90,18 +90,21 @@ const languageData = {
         pm: 'PM',
         daysOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
-            `${ampm} ${hours}:${minutes}:${seconds} | ${year}-${month}-${date} ${dayOfWeek}`
+            `${ampm} ${hours}:${minutes}:${seconds} | ${year}-${month}-${date} ${dayOfWeek}`,
+        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     },
     ko: {
         am: '오전',
         pm: '오후',
         daysOfWeek: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
         dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
-            `${ampm} ${hours}:${minutes}:${seconds} | ${year}년 ${month}월 ${date}일 ${dayOfWeek}`
+            `${ampm} ${hours}:${minutes}:${seconds} | ${year}년 ${month}월 ${date}일 ${dayOfWeek}`,
+        months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
     }
 };
 
 let currentLanguage = 'ko';
+
 
 
 
@@ -593,8 +596,15 @@ function switchLanguage(lang) {
     currentLanguage = lang;
     updateTime(); // 시간 업데이트
     updateText(); // 텍스트 업데이트
+    updateMonthNames();
 }
 
+function updateMonthNames() {
+    const monthNames = languageData[currentLanguage].months;
+    document.querySelectorAll('.month-name').forEach((element, index) => {
+        element.textContent = monthNames[index];
+    });
+}
 // 함수 실행 부분들
 document.addEventListener('DOMContentLoaded', () => {
     setShadowColor("green"); // 초기값은 green
