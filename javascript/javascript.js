@@ -553,9 +553,9 @@ function loadDayColor(colordata) {
 }
 const translations = {
     en: {
-        login: "Sign in",
+        Login: "Sign in",
         logout: "Sign out",
-        sign_up: "Create account",
+        Sign_up: "Create account",
         select_date: "Select a date",
         current_color: "Current color",
         Delete_color : "Delete color",
@@ -566,8 +566,8 @@ const translations = {
     },
     ko: {
         Login: "로그인",
-        logout: "로그아웃",
-        sign_up: "회원가입",
+        Logout: "로그아웃",
+        Sign_up: "회원가입",
         select_date:"날짜 선택",
         current_color:"현재 색깔 :",
         Delete_color : "색칠 삭제",
