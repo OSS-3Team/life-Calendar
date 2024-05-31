@@ -26,7 +26,7 @@ https://ee62-211-111-101-135.ngrok-free.app
 - 날짜 표시
 - 사용자의 감정 표시
 - 사용자의 감정 기록
-- 
+ 
 
 ## Life-Calendar 의 구조
 - header : Life-Calendar의 상단에 표시되며 로그인,회원가입 새로고침 등의 기능을 나타낸다. 
