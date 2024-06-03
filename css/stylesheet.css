@@ -562,18 +562,18 @@ main {
 .color-theme {
     clear: left;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
     place-items: center;
     border-bottom: 2px solid black;
     padding: 5px 0;
 }
 
 .theme-option {
-    width: 35px;
-    height: 35px;
+    width: 15px;
+    height: 15px;
     margin: 3px;
     cursor: pointer;
-    border: 4px solid #000000;
+    border: 2px solid #000000;
     border-radius: 5px
 }
 
