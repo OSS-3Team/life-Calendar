@@ -1,0 +1,541 @@
+body {
+    max-width: 1200px;
+    min-width: 1200px;
+    margin: auto;
+    background-color: #cbcbcb;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #424242;
+    text-decoration: none;
+}
+
+li a:hover, p a:hover {
+    border-bottom: 2px solid black;
+}
+
+header,
+sidebar,
+main,
+footer {
+    box-sizing: border-box;
+    font-weight: bold;
+    border: 3px solid black;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+header {
+    width: 100%;
+    height: 75px;
+    background-color: #e1eaff;
+    color: #fff;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo a{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration-line: none!important;
+    font-family: "Caveat", sans-serif;
+}
+
+.logo img{
+   width: 50px
+}
+
+.logo h1{
+    font-size: 20px;
+    padding: 30px auto;
+    text-decoration-line: none;
+}
+
+.nav-list {
+    float: right;
+}
+
+.nav-list li {
+    display: inline;
+    margin: 0 20px;
+    font-size: 15px;
+}
+
+.language{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+sidebar {
+    position: relative;
+    width: 20%;
+    height: 1100px;
+    float: left;
+    background-color: #e1eaff;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.sidebar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 반투명 검은색 오버레이 */
+    pointer-events: none;
+    /* 상호작용 비활성화 */
+    z-index: 1;
+    /* 오버레이를 앞에 표시 */
+}
+
+.sidebar * {
+    pointer-events: none;
+    /* 상호작용 비활성화 */
+}
+
+
+#select-day {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+.button {
+    border: 2px solid black;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 50px;
+    grid-gap: 12px;
+    border-radius: 50%;
+}
+
+main {
+    width: calc(80% - 30px);
+    height: 1100px;
+    float: right;
+}
+
+.indicator-date {
+    width: 100%;
+    height: 5%;
+    border-bottom: 2px solid black;
+    text-align: center;
+    line-height: 30px;
+    font-size: 25px;
+}
+
+.calendar {
+    height: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.month {
+    margin: 10px;
+}
+
+.month-name {
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    border: 3px solid black;
+    background-color:  #e1eaff;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.days-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, minmax(30px, 1fr));
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    grid-gap: 2px;
+    padding: 9px;
+    border-radius: 0 0 5px 5px;
+}
+
+.day {
+    background-color: white;
+    border: 3px solid black;
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+    line-height: 110%;
+    border-radius: 15%;
+}
+
+.day:hover {
+    color: red;
+}
+
+.selected {
+    color : red;
+} 
+
+.day:active {
+    transform: scale(0.8);
+    background-color: rgb(178, 178, 178);
+}
+
+
+
+.color-effect {
+    background-color: green;
+}
+
+#select-day {
+    text-align: center;
+    font-size: 25px;
+}
+
+#red {
+    background-color: red;
+}
+
+#orange {
+    background-color: orange;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#green {
+    background-color: green;
+}
+
+#turquoise {
+    background-color: turquoise;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#purple {
+    background-color: purple;
+}
+
+#gray {
+    background-color: gray;
+}
+
+#pastel-blue {
+    background-color: #e1eaff;
+}
+
+#pastel-plum {
+    background-color: #ffe6ff;
+}
+
+#pastel-peach {
+    background-color: #FFDAC1;
+}
+
+#pastel-mint {
+    background-color: #E2F0CB;
+}
+
+#pastel-skyblue {
+    background-color: #C4E2FF;
+}
+
+#pastel-lemon {
+    background-color: #FFFACD;
+}
+
+#pastel-rose {
+    background-color: #fcd0d0;
+}
+
+#pastel-lime {
+    background-color: #C1FFC1;
+}
+
+#pastel-skylime {
+    background-color: #E0FBE2;
+}
+
+#pastel-brightblue {
+    background-color: #E3FDFD;
+}
+
+#pastel-powderblue {
+    background-color: #d6ddff;
+}
+
+#pastel-beige {
+    background-color: #FFF2E1;
+}
+
+#ano1 {
+    background-color: #a91c1c;
+}
+
+#ano2 {
+    background-color: #c14a35;
+}
+
+#ano3 {
+    background-color: #c19035;
+}
+
+#ano4 {
+    background-color: #b3ac2b;
+}
+
+#ano5 {
+    background-color: #b5c135;
+}
+#ano6 {
+    background-color: #9ec135;
+}
+#ano7 {
+    background-color: #89c135;
+}
+#ano8 {
+    background-color: #51c135;
+}
+
+#ano9 {
+    background-color: #35c164;
+}
+#ano10 {
+    background-color: #35bac1;
+}
+
+#ano11 {
+    background-color: #1c65a9;
+}
+
+#ano12 {
+    background-color: #4335c1;
+}
+
+#ano13 {
+    background-color: #8b35c1;
+}
+
+#ano14 {
+    background-color: #9f2bb3;
+}
+
+#ano15 {
+    background-color: #c13595;
+}
+#ano16 {
+    background-color: #253a28;
+}
+#ano17 {
+    background-color: #797ab8;
+}
+#ano18 {
+    background-color: #4d3642;
+}
+
+#ano19 {
+    background-color: #607a8d;
+}
+#ano20 {
+    background-color: #66b771;
+}
+
+
+.select-color-container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.select-color-container .text {
+    font-size: 20px;
+    padding-right: 15px;
+    float: left;
+}
+
+.select-color-container .selected-color {
+    width: 35px;
+    height: 35px;
+    border: 4px solid black;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.color-picker {
+    clear: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    border-bottom: 2px solid black;
+    padding: 5px 0;
+}
+
+.color-option {
+    width: 35px;
+    height: 35px;
+    margin: 3px;
+    cursor: pointer;
+    border: 4px solid #000000;
+    border-radius: 5px
+}
+
+.color-option:hover, 
+.shadow-option:hover,
+.theme-option:hover {
+    border: 4px solid rgb(255, 255, 255);
+}
+
+.color-option:active,
+.shadow-option:active,
+.theme-option:active {
+    transform: scale(0.8);
+}
+
+.color-shadow {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+    border-bottom: 2px solid black;
+}
+
+.shadow-option {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 4px solid #000000;
+    border-radius: 5px
+}
+
+.reset-button {
+    width: 100%;
+    height: 25px;
+    background-color: #ff1900;
+    color: #fff;
+    border: none;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 8px 0;
+    transition: background-color 0.1s;
+}
+
+.reset-button:hover {
+    background-color: #c0392b;
+}
+
+.reset-button:active {
+    background-color: #4f0901;
+}
+
+.input{
+    width: 98%;
+    height: 150px;
+    font-size: 15px;
+    resize: none;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 2px solid #000000;
+}
+
+.submit {
+    width: 25%;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.Font{
+    width: 40%;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.submit:hover, .Font:hover {
+    background-color: #d3d3d3;
+}
+
+.submit:active, .Font:active {
+    background-color: #9e9e9e;
+}
+
+
+.fontSelect{
+    width: 30%;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 4px;
+    border: 2px solid #000000;
+}
+
+.shade {
+    width: 120px;
+    height: 120px;
+    margin: 0 5px;
+}
+
+.select-theme-container {
+    width: 100%;
+    margin-top: 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.color-theme {
+    clear: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    border-bottom: 2px solid black;
+    padding: 5px 0;
+}
+
+.theme-option {
+    width: 35px;
+    height: 35px;
+    margin: 3px;
+    cursor: pointer;
+    border: 4px solid #000000;
+    border-radius: 5px
+}
+
+footer {
+    width: 100%;
+    height: 75px;
+    clear: both;
+    background-color: #e1eaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-container {
+    text-align: center;
+    font-size: 15px;
+    line-height: 50px;
+}
