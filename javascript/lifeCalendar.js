@@ -1,8 +1,6 @@
 // 함수 실행 부분들
 document.addEventListener('DOMContentLoaded', () => {
     setShadowColor("green"); // 초기값은 green
-    updateTime();
-    setInterval(updateTime, 1000);
     createCalendarGrid(10, 13)
 });
 
@@ -53,28 +51,6 @@ const languageData = {
 };    
 
 let currentLanguage = 'ko';
-
-
-
-
-function updateTime() {
-    const now = new Date();
-    const hours = now.getHours();
-    const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const date = now.getDate().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? languageData[currentLanguage].pm : languageData[currentLanguage].am;
-    const formattedHours = (hours % 12) || 12;
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    const dayOfWeek = languageData[currentLanguage].daysOfWeek[now.getDay()];
-
-    const timeString = languageData[currentLanguage].dateFormat(
-        ampm, formattedHours, minutes, seconds, year, month, date, dayOfWeek
-    );    
-
-    document.querySelector('.indicator-date').innerText = timeString;
-}    
 
 function colorMap(color) {
     const colorMaps = {
