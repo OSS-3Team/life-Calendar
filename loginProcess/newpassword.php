@@ -24,6 +24,15 @@
 
     <div class="login-container">
         <h2>비밀번호 새로 만들기</h2>
+
+        <?php if(isset($_GET['error'])) {?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+        <?php } ?>
+        
+        <?php if(isset($_GET['success'])) {?>
+        <p class="success"><?php echo $_GET['success']; ?></p>
+        <?php } ?>
+
         <form action="../src/register_server.php" method="post">
             <label for="username">아이디</label>
             <input type="text" id="id" name="user_id" required>
