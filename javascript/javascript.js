@@ -114,9 +114,6 @@ const languageData = {
 let currentLanguage = 'ko';
 
 
-
-
-
 function updateTime() {
     const now = new Date();
     const hours = now.getHours();
@@ -620,9 +617,6 @@ function switchLanguage(lang) {
     updateText(); // 텍스트 업데이트
     updateMonthNames();
 }
-
-
-
 
 function updateMonthNames() {
     const monthNames = languageData[currentLanguage].months;
