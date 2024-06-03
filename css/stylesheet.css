@@ -68,6 +68,12 @@ header {
     font-size: 15px;
 }
 
+.language{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
 sidebar {
     width: 20%;
     height: 1100px;

@@ -90,19 +90,28 @@ const languageData = {
         pm: 'PM',
         daysOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
-            `${ampm} ${hours}:${minutes}:${seconds} | ${year}-${month}-${date} ${dayOfWeek}`
+            `${ampm} ${hours}:${minutes}:${seconds} | ${year}-${month}-${date} ${dayOfWeek}`,
+        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     },
     ko: {
         am: '오전',
         pm: '오후',
         daysOfWeek: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
         dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
-            `${ampm} ${hours}:${minutes}:${seconds} | ${year}년 ${month}월 ${date}일 ${dayOfWeek}`
+            `${ampm} ${hours}:${minutes}:${seconds} | ${year}년 ${month}월 ${date}일 ${dayOfWeek}`,
+        months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+    },
+    ja: {
+        am: '午前',
+        pm: '午後',
+        daysOfWeek: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+        dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
+            `${ampm} ${hours}:${minutes}:${seconds} | ${year}-${month}-${date} ${dayOfWeek}`,
+        months: ['１月', '２月', '３月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
     }
 };
 
 let currentLanguage = 'ko';
-
 
 
 function updateTime() {
@@ -556,7 +565,7 @@ const translations = {
         Login: "Sign in",
         logout: "Sign out",
         Sign_up: "Create account",
-        select_date: "Select a date",
+        select_date: "日付選択",
         current_color: "Current color",
         Delete_color : "Delete color",
         memo: "Memo",
@@ -575,6 +584,18 @@ const translations = {
         save: "저장",
         font: "폰트변경",
         theme_color : "테마 색깔"
+    },
+    ja: {
+        Login: "ログイン",
+        logout: "ログアウト",
+        Sign_up: "アカウント作成",
+        select_date: "日付選択",
+        current_color: "現在の色 :",
+        Delete_color: "色を削除",
+        memo: "メモ",
+        save: "保存",
+        font: "フォントを変更",
+        theme_color: "テーマカラー"
     }
 };
 
@@ -591,10 +612,18 @@ function switchLanguage(lang) {
         return;
     }
     currentLanguage = lang;
+    console.log(`Language switched to: ${currentLanguage}`);
     updateTime(); // 시간 업데이트
     updateText(); // 텍스트 업데이트
+    updateMonthNames();
 }
 
+function updateMonthNames() {
+    const monthNames = languageData[currentLanguage].months;
+    document.querySelectorAll('.month-name').forEach((element, index) => {
+        element.textContent = monthNames[index];
+    });
+}
 // 함수 실행 부분들
 document.addEventListener('DOMContentLoaded', () => {
     setShadowColor("green"); // 초기값은 green
