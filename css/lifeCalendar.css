@@ -77,7 +77,7 @@ header {
 sidebar {
     position: relative;
     width: 20%;
-    height: 1100px;
+    height: 1500px;
     float: left;
     background-color: #e1eaff;
     margin-bottom: 30px;
@@ -111,37 +111,38 @@ sidebar {
     display: grid;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(13, 1fr);
-    gap: 5px;
+    gap: 10px;
     padding: 10px;
 }
 
 .calendar-box {
-    border: 1px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
     position: relative;
 }
 
 .inner-grid {
     display: grid;
-    grid-template-rows: repeat(10, 1fr);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 10px);
+    /* 행 크기 고정 */
+    grid-template-columns: repeat(4, 10px);
+    /* 열 크기 고정 */
     gap: 2px;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     position: absolute;
 }
 
 .inner-box {
+    width: 10px;
+    height: 10px;
     border: 1px solid #999;
-    background-color: #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
-
 
 
 
@@ -162,7 +163,7 @@ sidebar {
 
 main {
     width: calc(80% - 30px);
-    height: 1100px;
+    height: 1500px;
     float: right;
 }
 
