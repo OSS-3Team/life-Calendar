@@ -104,6 +104,14 @@ sidebar {
     /* 상호작용 비활성화 */
 }
 
+.calendar-container {
+    width: 100%;
+    height: 90%;
+}
+
+
+
+
 
 #select-day {
     border-bottom: 2px solid black;
@@ -134,65 +142,6 @@ main {
     line-height: 30px;
     font-size: 25px;
 }
-
-.calendar {
-    height: 95%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.month {
-    margin: 10px;
-}
-
-.month-name {
-    box-sizing: border-box;
-    width: 100%;
-    height: 30px;
-    border: 3px solid black;
-    background-color:  #e1eaff;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    border-radius: 5px 5px 0 0;
-}
-
-.days-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, minmax(30px, 1fr));
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
-    grid-gap: 2px;
-    padding: 9px;
-    border-radius: 0 0 5px 5px;
-}
-
-.day {
-    background-color: white;
-    border: 3px solid black;
-    text-align: center;
-    font-size: 15px;
-    padding: 5px;
-    line-height: 110%;
-    border-radius: 15%;
-}
-
-.day:hover {
-    color: red;
-}
-
-.selected {
-    color : red;
-} 
-
-.day:active {
-    transform: scale(0.8);
-    background-color: rgb(178, 178, 178);
-}
-
-
 
 .color-effect {
     background-color: green;
