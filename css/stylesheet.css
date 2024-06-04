@@ -335,6 +335,79 @@ main {
     background-color: #66b771;
 }
 
+#ano21 {
+    background-color: #a91c1c;
+}
+
+#ano22 {
+    background-color: #c14a35;
+}
+
+#ano23 {
+    background-color: #c19035;
+}
+
+#ano24 {
+    background-color: #b3ac2b;
+}
+
+#ano25 {
+    background-color: #b5c135;
+}
+#ano26 {
+    background-color: #9ec135;
+}
+#ano27 {
+    background-color: #89c135;
+}
+#ano28 {
+    background-color: #51c135;
+}
+
+#ano29 {
+    background-color: #35c164;
+}
+#ano30 {
+    background-color: #35bac1;
+}
+
+#ano31 {
+    background-color: #1c65a9;
+}
+
+#ano32 {
+    background-color: #4335c1;
+}
+
+#ano33 {
+    background-color: #8b35c1;
+}
+
+#ano34 {
+    background-color: #9f2bb3;
+}
+
+#ano35 {
+    background-color: #c13595;
+}
+#ano36 {
+    background-color: #253a28;
+}
+#ano37 {
+    background-color: #797ab8;
+}
+#ano38 {
+    background-color: #4d3642;
+}
+
+#ano39 {
+    background-color: #607a8d;
+}
+#ano40 {
+    background-color: #66b771;
+}
+
+
 
 .select-color-container {
     width: 100%;
@@ -489,18 +562,18 @@ main {
 .color-theme {
     clear: left;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
     place-items: center;
     border-bottom: 2px solid black;
     padding: 5px 0;
 }
 
 .theme-option {
-    width: 35px;
-    height: 35px;
+    width: 15px;
+    height: 15px;
     margin: 3px;
     cursor: pointer;
-    border: 4px solid #000000;
+    border: 2px solid #000000;
     border-radius: 5px
 }
 
