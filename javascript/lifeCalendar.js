@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     createHorizontalLine(13, 1)
     createVerticalLine(1, 10)
     createCalendarGrid(10, 13)
-    WeeksInputButton()
+    WeeksInputButton();
+    changeTheme();
 });
 
 function createInnerGrid(container) {
@@ -210,3 +211,12 @@ function updateMonthNames() {
     });    
 }    
 
+function changeTheme() {
+    const header = document.querySelector('.header');
+    const sidebar = document.querySelector('.sidebar');
+    const footer = document.querySelector('.footer');
+    const themeColor = localStorage.getItem("theme")
+    header.style.backgroundColor = themeColor;
+    sidebar.style.backgroundColor = themeColor;
+    footer.style.backgroundColor = themeColor;
+}
