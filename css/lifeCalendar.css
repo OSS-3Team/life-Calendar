@@ -131,6 +131,9 @@ sidebar {
     height: 25px;
 }
 
+.highlight {
+    background-color: yellow;
+}
 
 .calendar-container {
     width: 90%;
