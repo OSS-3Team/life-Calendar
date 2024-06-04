@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setShadowColor("green"); // 초기값은 green
     createCalendarGrid(10, 13)
     createHorizontalLine(13, 1)
+    createVerticalLine(1, 10)
 });
 
 function createInnerGrid(container) {
@@ -42,9 +43,18 @@ function createHorizontalLine(rows, columns) {
     }
 }
 
+function createVerticalLine(rows, columns) {
+    const container = document.querySelector('.vertical-line');
 
-
-
+    for (let i = 0; i < rows * columns; i++) {
+        const box = document.createElement('div');
+        box.classList.add('years');
+        // 4의 배수를 계산하여 텍스트로 추가
+        const multipleOfFour = (i + 1) * 10;
+        box.textContent = multipleOfFour;
+        container.appendChild(box);
+    }
+}
 
 const languageData = {
     en: {
