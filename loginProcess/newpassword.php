@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 창</title>
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Poetsen+One&display=swap"rel="stylesheet">
@@ -20,6 +19,17 @@
                 <img class="logo_img" src="../image/아이콘.png" alt="로고 이미지">
                 <h1> DayDream<br> Capture Your Moment </h1>
             </a>
+        </div>
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="../about.html">ABOUT</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <div class="login-container">
@@ -33,7 +43,7 @@
         <p class="success"><?php echo $_GET['success']; ?></p>
         <?php } ?>
 
-        <form action="../src/register_server.php" method="post">
+        <form action="../src/newpassword.php" method="post">
             <label for="username">아이디</label>
             <input type="text" id="id" name="user_id" required>
 

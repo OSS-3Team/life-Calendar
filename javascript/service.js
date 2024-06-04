@@ -35,3 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(firstLink.dataset.content).style.display = 'block';
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    changeTheme();
+});
