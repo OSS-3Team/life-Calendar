@@ -72,6 +72,13 @@ function highlightBoxes(weeks) {
     }
 }
 
+function InitializationColor() {
+    const boxes = document.querySelectorAll('.inner-box');
+    boxes.forEach(box => {
+        box.classList.remove('highlight');
+    });
+}
+
 function WeeksInputButton() {
     document.querySelector('.inputDay').addEventListener('click', () => {
         const year = document.getElementById('year').value;
@@ -79,6 +86,7 @@ function WeeksInputButton() {
         const day = document.getElementById('day').value;
     
         const weeks = calculateWeeksDifference(year, month, day);
+        InitializationColor();
         highlightBoxes(weeks);
     });
 }
