@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createHorizontalLine(13, 1)
     createVerticalLine(1, 10)
     createCalendarGrid(10, 13)
+    WeeksInputButton()
 });
 
 function createInnerGrid(container) {
@@ -62,6 +63,24 @@ function calculateWeeksDifference(year, month, day) {
     const differenceInTime = currentDate - inputDate;
     const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
     return Math.floor(differenceInDays / 7);
+}
+
+function highlightBoxes(weeks) {
+    const boxes = document.querySelectorAll('.inner-box');
+    for (let i = 0; i < weeks && i < boxes.length; i++) {
+        boxes[i].classList.add('highlight');
+    }
+}
+
+function WeeksInputButton() {
+    document.querySelector('.inputDay').addEventListener('click', () => {
+        const year = document.getElementById('year').value;
+        const month = document.getElementById('month').value;
+        const day = document.getElementById('day').value;
+    
+        const weeks = calculateWeeksDifference(year, month, day);
+        highlightBoxes(weeks);
+    });
 }
 
 const languageData = {
