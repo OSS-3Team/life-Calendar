@@ -126,6 +126,11 @@ sidebar {
     font-size: 1rem;
 }
 
+.inputDay {
+    width: 80px;
+    height: 25px;
+}
+
 
 .calendar-container {
     width: 90%;
