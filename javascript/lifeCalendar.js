@@ -56,7 +56,13 @@ function createVerticalLine(rows, columns) {
     }
 }
 
-
+function calculateWeeksDifference(year, month, day) {
+    const inputDate = new Date(year, month - 1, day);
+    const currentDate = new Date();
+    const differenceInTime = currentDate - inputDate;
+    const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
+    return Math.floor(differenceInDays / 7);
+}
 
 const languageData = {
     en: {
