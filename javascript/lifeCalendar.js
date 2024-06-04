@@ -1,9 +1,9 @@
 // 함수 실행 부분들
 document.addEventListener('DOMContentLoaded', () => {
     setShadowColor("green"); // 초기값은 green
-    createCalendarGrid(10, 13)
     createHorizontalLine(13, 1)
     createVerticalLine(1, 10)
+    createCalendarGrid(10, 13)
 });
 
 function createInnerGrid(container) {
@@ -55,6 +55,8 @@ function createVerticalLine(rows, columns) {
         container.appendChild(box);
     }
 }
+
+
 
 const languageData = {
     en: {
