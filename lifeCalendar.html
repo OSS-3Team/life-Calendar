@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Calendar</title>
+    <link rel="stylesheet" href="css/lifeCalendar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Poetsen+One&display=swap" rel="stylesheet">
+    <script src="javascript/lifeCalendar.js"></script>
+</head>
+
+
+<body> 
+    <header class="header">
+        <div class = "logo" >
+            <a href="">
+                <img class="logo_img" src="image/아이콘.png" alt="로고 이미지">
+                <div>
+                    <h1> DayDream <br> Capture Your Moment</h1>
+                </div>
+            </a>
+        </div>
+        
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li>
+                    <a href="index.html">Day Calendar</a>
+                </li>
+                <li>
+                    <a href="lifeCalendar.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">ABOUT</a>
+                </li>
+                <li id="login-item" style="display: none;">
+                    <a data-key="Login" href="loginProcess/login.php">로그인</a>
+                </li>
+                <li id="register-item" style="display: none;">
+                    <a data-key="Sign_up" href="loginProcess/register.php">회원가입</a>
+                </li>
+                <li id="logout-item" style="display: none;">
+                    <a data-key="logout" href="src/logout_server.php">로그아웃</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <sidebar class="sidebar">
+            <div data-key="select_date" id="select-day">날짜 선택</div>
+            <div class="color-container">
+                <div class="select-color-container">
+                    <div data-key="current_color" class="text">현재 색깔 : </div>
+                    <div class="selected-color"></div>
+                </div>
+
+                <div class="color-picker">
+                    <div class="color-option" id="red"></div>
+                    <div class="color-option" id="orange"></div>
+                    <div class="color-option" id="yellow"></div>
+                    <div class="color-option" id="green"></div>
+                    <div class="color-option" id="turquoise"></div>
+                    <div class="color-option" id="blue"></div>
+                    <div class="color-option" id="purple"></div>
+                    <div class="color-option" id="gray"></div>
+                </div>
+
+                <div class="color-shadow">
+                    <div class="shadow-option" id="shadow-100"></div>
+                    <div class="shadow-option" id="shadow-75"></div>
+                    <div class="shadow-option" id="shadow-50"></div>
+                    <div class="shadow-option" id="shadow-40"></div>
+                    <div class="shadow-option" id="shadow-30"></div>
+                </div>
+                <button data-key="Delete_color" id="reset-color" class="reset-button">색칠 삭제</button>    
+
+
+                <div name="memo">
+                    <textarea data-key="memo" class="input" rows="10" cols="10" placeholder="메모"></textarea>
+                    <button data-key="save" class="submit", id="textbutton">저장</button>
+
+                    
+                    <button data-key="font" class = "dummy_btn", id = fontbutton>폰트변경</button>
+                    <select class ="fontSelect" id = "fontchange">
+                        <option value="굴림체">굴림체</option>
+                        <option value="나눔고딕">나눔고딕</option>
+                        <option value="바탕">바탕체</option>
+                        <option value="한컴산뜻돋움">한컴산뜻돋움</option>
+                        <option value="궁서체">궁서체</option>
+                        <option value="돋움">돋움체</option>
+                        <option value="휴먼엽서체">휴먼엽서체</option>
+                        <option value="MS Serif">MS Serif(영문과 숫자에만 적용됩니다.)</option>
+                        <option value="Arial Black">Arial Black(영문과 숫자에만 적용됩니다.)</option>
+                        <option value="Comic Sans MS">Comic Sans MS(영문과 숫자에만 적용됩니다.)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="theme-container">
+                <div class="select-theme-container">
+                    <div data-key="theme_color" class="text">테마 색깔</div>
+                    <div class="selected-theme-color"></div>
+                </div>
+            
+                <div class="color-theme">
+                    <div class="theme-option" id="pastel-blue"></div>
+                    <div class="theme-option" id="pastel-plum"></div>
+                    <div class="theme-option" id="pastel-peach"></div>
+                    <div class="theme-option" id="pastel-mint"></div>
+                    <div class="theme-option" id="pastel-skyblue"></div>
+                    <div class="theme-option" id="pastel-lemon"></div>
+                    <div class="theme-option" id="pastel-rose"></div>
+                    <div class="theme-option" id="pastel-lime"></div>
+                    <div class="theme-option" id="pastel-skylime"></div>
+                    <div class="theme-option" id="pastel-brightblue"></div>
+                    <div class="theme-option" id="pastel-powderblue"></div>
+                    <div class="theme-option" id="pastel-beige"></div>
+                    <div class="theme-option" id="ano1"></div>
+                    <div class="theme-option" id="ano2"></div>
+                    <div class="theme-option" id="ano3"></div>
+                    <div class="theme-option" id="ano4"></div>
+                    <div class="theme-option" id="ano5"></div>
+                    <div class="theme-option" id="ano6"></div>
+                    <div class="theme-option" id="ano7"></div>
+                    <div class="theme-option" id="ano8"></div>
+                    <div class="theme-option" id="ano9"></div>
+                    <div class="theme-option" id="ano10"></div>
+                    <div class="theme-option" id="ano11"></div>
+                    <div class="theme-option" id="ano12"></div>
+                    <div class="theme-option" id="ano13"></div>
+                    <div class="theme-option" id="ano14"></div>
+                    <div class="theme-option" id="ano15"></div>
+                    <div class="theme-option" id="ano16"></div>
+                    <div class="theme-option" id="ano17"></div>
+                    <div class="theme-option" id="ano18"></div>
+                    <div class="theme-option" id="ano19"></div>
+                    <div class="theme-option" id="ano20"></div>
+                
+                </div>
+            </div>
+
+        </sidebar>
+        <main>
+            <div class="language">
+                <select id="language-selector" onchange="switchLanguage(this.value)">
+                    <option value="ko">한국어</option>
+                    <option value="en">English</option>
+                </select>
+            </div> 
+
+            <ul class="choiceDay">
+                <li>
+                    <label for="year">Year</label>
+                    <input type="number" id="year" min="1900" max="2100" value="2023">
+                </li>
+                <li>
+                    <label for="month">Month</label>
+                    <select id="month">
+                        <script>
+                            for (let i = 1; i <= 12; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </li>
+                <li>
+                    <label for="day">Day</label>
+                    <input type="number" id="day" min="1" max="31" value="1">
+                </li>
+            </ul>
+
+            <div class="horizontal-line"></div>
+            <div class="vertical-line"></div>
+            <div class="calendar-container">
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>
+                © 2024 All Rights Reserved.
+                <a href="Personal policy.html">개인정보 보호</a>
+                |
+                <a href="help.html">도움말</a>
+                |
+                <a href="service.html">서비스 약관</a>
+                |
+                <a href="contact.html">연락처</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
