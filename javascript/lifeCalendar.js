@@ -92,7 +92,18 @@ function WeeksInputButton() {
     });
 }
 
-
+function showTooltip(event, text) {
+    let tooltip = document.querySelector('.tooltip');
+    if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.classList.add('tooltip');
+        document.body.appendChild(tooltip);
+    }
+    tooltip.style.display = 'block';
+    tooltip.style.left = event.pageX + 'px';
+    tooltip.style.top = event.pageY + 'px';
+    tooltip.innerHTML = text;
+}
 
 
 const languageData = {
