@@ -29,30 +29,6 @@ header {
     justify-content: space-between;
 }
 
-.error {
-    margin: 10px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 12px;
-    width: 80%;
-    color: rgb(203, 78, 78);
-    background-color: rgb(255, 188, 188);
-}
-
-.success {
-    margin: 10px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: bold;
-    width: 80%;
-    color: rgb(86, 170, 63);
-    background-color: rgb(215, 255, 207);
-}
-
-
 a {
     color: #424242;
     text-decoration: none;
