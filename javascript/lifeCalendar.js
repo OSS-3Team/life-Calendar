@@ -103,8 +103,10 @@ function calculateTimeUntil(date) {
 
 function highlightBoxes(weeks) {
     const boxes = document.querySelectorAll('.inner-box');
+    const themeColor = localStorage.getItem("theme")
     for (let i = 0; i < weeks && i < boxes.length; i++) {
-        boxes[i].classList.add('highlight');
+
+        boxes[i].style.backgroundColor = themeColor;
     }
 }
 
