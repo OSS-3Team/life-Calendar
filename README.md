@@ -21,7 +21,7 @@ https://6398-61-34-253-123.ngrok-free.app/
 <a href="https://docs.google.com/document/d/1kFv2AlgV6okS5pjSDy7rbzng9SRRdzr2FOT6_B91_5o/edit?usp=sharing" target="_blank">문서 열기</a>
 
 ## 프로젝트 발표 자료(ppt)
-<a href="https://discord.com/channels/844967345385766912/844967345385766915/1247740308457001132" target="_blank">자료 열기</a>
+<a href="https://docs.google.com/presentation/d/1QgcmEnKu2ysCoqGy41TXmDYa-LK3YDoDoyHopeHrO7o/edit#slide=id.p" target="_blank">자료 열기</a>
 
 ## Life-Calendar 기능
 - 사용자의 정보 
