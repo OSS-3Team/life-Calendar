@@ -83,23 +83,22 @@ function calculateWeeksDifference(startDate) {
 }
 
 function calculateTimeUntil(date) {
-    const currentDate = new Date();
-    const targetDate = new Date(date);
+    const currentDate = new Date(date);
+    const targetDate = new Date();
+    // 목표 날짜를 입력된 날짜로부터 100년 뒤로 설정
+    targetDate.setFullYear(targetDate.getFullYear() + 100);
 
     let diffInTime = targetDate - currentDate;
     let diffInDays = Math.floor(diffInTime / (1000 * 60 * 60 * 24));
 
     const years = Math.floor(diffInDays / 365);
-    diffInDays %= 365;
-
     const months = Math.floor(diffInDays / 30);
-    diffInDays %= 30;
-
     const weeks = Math.floor(diffInDays / 7);
-    const days = diffInDays % 7;
+    const days = diffInDays;
 
     return { years, months, weeks, days };
 }
+
 
 
 function highlightBoxes(weeks) {
@@ -155,7 +154,8 @@ function mouseEventOver() {
         if (event.target.classList.contains('inner-box')) {
             const date = event.target.getAttribute('data-date');
             const { years, months, weeks, days } = calculateTimeUntil(date);
-            const tooltipText = `Years: ${years}, Months: ${months}, Weeks: ${weeks}, Days: ${days}`;
+            const tooltipText = `남은 년도 : ${years}년<br>남은 월 : ${months}월<br>남은 주 : ${weeks}주<br>남은 일 : ${days}일`;
+            showTooltip(event, tooltipText);
             showTooltip(event, tooltipText);
         }
     });
