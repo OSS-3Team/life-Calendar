@@ -10,14 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
     mouseEventout();
 });
 
-function createInnerGrid(container) {
+function createInnerGrid(container, startDate) {
     const innerGrid = document.createElement('div');
     innerGrid.classList.add('inner-grid');
+
+    let currentDate = new Date(startDate);
 
     for (let i = 0; i < 10 * 4; i++) {
         const innerBox = document.createElement('div');
         innerBox.classList.add('inner-box');
+
+        // 날짜를 데이터 속성에 저장
+        innerBox.setAttribute('data-date', currentDate.toISOString().split('T')[0]);
+
         innerGrid.appendChild(innerBox);
+
+        // 날짜를 하루씩 증가
+        currentDate.setDate(currentDate.getDate() + 7);
     }
 
     container.appendChild(innerGrid);
@@ -25,11 +34,16 @@ function createInnerGrid(container) {
 
 function createCalendarGrid(rows, columns) {
     const container = document.querySelector('.calendar-container');
+    let startDate = new Date();
 
     for (let i = 0; i < rows * columns; i++) {
         const box = document.createElement('div');
         box.classList.add('calendar-box');
-        createInnerGrid(box); // 각 박스에 내부 그리드를 추가
+        createInnerGrid(box, startDate);
+
+        // 각 박스의 시작 날짜를 40일씩 증가
+        startDate.setDate(startDate.getDate() + 280);
+
         container.appendChild(box);
     }
 }
@@ -60,22 +74,31 @@ function createVerticalLine(rows, columns) {
     }
 }
 
-function calculateWeeksDifference(year, month, day) {
-    const inputDate = new Date(year, month - 1, day);
+function calculateWeeksDifference(startDate) {
     const currentDate = new Date();
+    const inputDate = new Date(startDate);
     const differenceInTime = currentDate - inputDate;
     const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
     return Math.floor(differenceInDays / 7);
 }
 
-function calculateWeeksUntil100Years(year, month, day) {
-    const inputDate = new Date(year, month - 1, day);
-    const endDate = new Date(inputDate);
-    endDate.setFullYear(inputDate.getFullYear() + 100);
-    const differenceInTime = endDate - new Date();
-    const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
-    return Math.floor(differenceInDays / 7);
+function calculateTimeUntil(date) {
+    const currentDate = new Date(date);
+    const targetDate = new Date();
+    // 목표 날짜를 입력된 날짜로부터 100년 뒤로 설정
+    targetDate.setFullYear(targetDate.getFullYear() + 100);
+
+    let diffInTime = targetDate - currentDate;
+    let diffInDays = Math.floor(diffInTime / (1000 * 60 * 60 * 24));
+
+    const years = Math.floor(diffInDays / 365);
+    const months = Math.floor(diffInDays / 30);
+    const weeks = Math.floor(diffInDays / 7);
+    const days = diffInDays;
+
+    return { years, months, weeks, days };
 }
+
 
 
 function highlightBoxes(weeks) {
@@ -94,11 +117,12 @@ function InitializationColor() {
 
 function WeeksInputButton() {
     document.querySelector('.inputDay').addEventListener('click', () => {
-        const year = document.getElementById('year').value;
-        const month = document.getElementById('month').value;
-        const day = document.getElementById('day').value;
+        const year = parseInt(document.getElementById('year').value, 10);
+        const month = parseInt(document.getElementById('month').value, 10);
+        const day = parseInt(document.getElementById('day').value, 10);
     
-        const weeks = calculateWeeksDifference(year, month, day);
+        const dateString = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        const weeks = calculateWeeksDifference(dateString);
         InitializationColor();
         highlightBoxes(weeks);
     });
@@ -112,8 +136,9 @@ function showTooltip(event, text) {
         document.body.appendChild(tooltip);
     }
     tooltip.style.display = 'block';
-    tooltip.style.left = `${event.clientX + 10}px`;
-    tooltip.style.top = `${event.clientY + 10}px`;
+    const rect = event.target.getBoundingClientRect();
+    tooltip.style.left = `${rect.left + window.scrollX}px`;  // 스크롤된 X 좌표를 더함
+    tooltip.style.top = `${rect.bottom + window.scrollY}px`; // 스크롤된 Y 좌표를 더함
     tooltip.innerHTML = text;
 }
 
@@ -127,11 +152,11 @@ function hideTooltip() {
 function mouseEventOver() {
     document.addEventListener('mouseover', (event) => {
         if (event.target.classList.contains('inner-box')) {
-            const year = document.getElementById('year').value;
-            const month = document.getElementById('month').value;
-            const day = document.getElementById('day').value;
-            const weeksUntil100Years = calculateWeeksUntil100Years(year, month, day);
-            showTooltip(event, `Weeks until 100 years: ${weeksUntil100Years}`);
+            const date = event.target.getAttribute('data-date');
+            const { years, months, weeks, days } = calculateTimeUntil(date);
+            const tooltipText = `남은 년도 : ${years}년<br>남은 월 : ${months}월<br>남은 주 : ${weeks}주<br>남은 일 : ${days}일`;
+            showTooltip(event, tooltipText);
+            showTooltip(event, tooltipText);
         }
     });
 }
