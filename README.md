@@ -20,6 +20,9 @@ https://6398-61-34-253-123.ngrok-free.app/
 ## Life-Calendar 설계도 (문서)  
 <a href="https://docs.google.com/document/d/1kFv2AlgV6okS5pjSDy7rbzng9SRRdzr2FOT6_B91_5o/edit?usp=sharing" target="_blank">문서 열기</a>
 
+## 프로젝트 발표 자료(ppt)
+<a href="https://docs.google.com/presentation/d/1QgcmEnKu2ysCoqGy41TXmDYa-LK3YDoDoyHopeHrO7o/edit#slide=id.p" target="_blank">자료 열기</a>
+
 ## Life-Calendar 기능
 - 사용자의 정보 
 - 로그인 로그아웃 기능
