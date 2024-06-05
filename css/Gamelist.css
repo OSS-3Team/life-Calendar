@@ -1,0 +1,151 @@
+body {
+    max-width: 500px;
+    min-width: 500px;
+    margin: auto;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+header,
+footer {
+    box-sizing: border-box;
+    font-weight: bold;
+    border: 2px solid black;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+header {
+    width: 100%;
+    height: 75px;
+    background-color: #E3FDFD;
+    color: #fff;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.error {
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 12px;
+    width: 80%;
+    color: rgb(203, 78, 78);
+    background-color: rgb(255, 188, 188);
+}
+
+.success {
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 80%;
+    color: rgb(86, 170, 63);
+    background-color: rgb(215, 255, 207);
+}
+
+
+a {
+    color: #424242;
+    text-decoration: none;
+    transition: border-bottom 0.3s;
+}
+
+li a:hover,
+p a:hover {
+    border-bottom: 2px solid black;
+}
+
+.logo a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration-line: none !important;
+    font-family: "Caveat", sans-serif;
+}
+
+.logo img {
+    width: 50px
+}
+
+.logo h1 {
+    font-size: 20px;
+    padding: 30px auto;
+    text-decoration-line: none;
+}
+
+.nav-list {
+    float: right;
+}
+
+.nav-list li {
+    display: inline;
+    margin: 0 20px;
+    font-size: 15px;
+}
+
+
+.login-container {
+    background-color: #fff;
+    padding: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 450px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid black;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+    text-align: left;
+    font-size: 12px;
+    width: 84%;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 80%;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

@@ -565,7 +565,7 @@ const translations = {
         Login: "Sign in",
         logout: "Sign out",
         Sign_up: "Create account",
-        select_date: "日付選択",
+        select_date: "Select Date",
         current_color: "Current color",
         Delete_color : "Delete color",
         memo: "Memo",
