@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     createCalendarGrid(10, 13)
     WeeksInputButton();
     changeTheme();
+    mouseEventOver();
+    mouseEventout();
 });
 
 function createInnerGrid(container) {
@@ -66,6 +68,16 @@ function calculateWeeksDifference(year, month, day) {
     return Math.floor(differenceInDays / 7);
 }
 
+function calculateWeeksUntil100Years(year, month, day) {
+    const inputDate = new Date(year, month - 1, day);
+    const endDate = new Date(inputDate);
+    endDate.setFullYear(inputDate.getFullYear() + 100);
+    const differenceInTime = endDate - new Date();
+    const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
+    return Math.floor(differenceInDays / 7);
+}
+
+
 function highlightBoxes(weeks) {
     const boxes = document.querySelectorAll('.inner-box');
     for (let i = 0; i < weeks && i < boxes.length; i++) {
@@ -100,9 +112,36 @@ function showTooltip(event, text) {
         document.body.appendChild(tooltip);
     }
     tooltip.style.display = 'block';
-    tooltip.style.left = event.pageX + 'px';
-    tooltip.style.top = event.pageY + 'px';
+    tooltip.style.left = `${event.clientX + 10}px`;
+    tooltip.style.top = `${event.clientY + 10}px`;
     tooltip.innerHTML = text;
+}
+
+function hideTooltip() {
+    const tooltip = document.querySelector('.tooltip');
+    if (tooltip) {
+        tooltip.style.display = 'none';
+    }
+}
+
+function mouseEventOver() {
+    document.addEventListener('mouseover', (event) => {
+        if (event.target.classList.contains('inner-box')) {
+            const year = document.getElementById('year').value;
+            const month = document.getElementById('month').value;
+            const day = document.getElementById('day').value;
+            const weeksUntil100Years = calculateWeeksUntil100Years(year, month, day);
+            showTooltip(event, `Weeks until 100 years: ${weeksUntil100Years}`);
+        }
+    });
+}
+
+function mouseEventout() {
+    document.addEventListener('mouseout', (event) => {
+        if (event.target.classList.contains('inner-box')) {
+            hideTooltip();
+        }
+    });
 }
 
 
