@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/saolei.css" />
+	<link rel="stylesheet" href="css/iconfont.css" />
+	<script src="js/javascript.js"></script>
+	<body>
+		<header class="header">
+			<div class="logo">
+				<a href="">
+					<img class="logo_img" src="../../image/아이콘.png" alt="로고 이미지">
+					<div>
+						<h1> DayDream <br> Capture Your Moment</h1>
+					</div>
+				</a>
+			</div>
+		
+			<div class="nav-container">
+				<ul class="nav-list">
+					<li>
+						<a href="../../Gamelist.html">SimpleGame</a>
+					</li>
+					<li>
+						<a href="../../lifeCalendar.html">Life Calendar</a>
+					</li>
+					<li>
+						<a href="../../index.html">Home</a>
+					</li>
+					<li>
+						<a href="../../about.html">ABOUT</a>
+					</li>
+					<li id="login-item" style="display: none;">
+						<a data-key="Login" href="loginProcess/login.php">로그인</a>
+					</li>
+					<li id="register-item" style="display: none;">
+						<a data-key="Sign_up" href="loginProcess/register.php">회원가입</a>
+					</li>
+					<li id="logout-item" style="display: none;">
+						<a data-key="logout" href="src/logout_server.php">로그아웃</a>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+
+		<div class="show-ctn">
+		<div class="time-ctn">
+			<span class="time-body"></span>
+		</div>
+		<div class="overMines-ctn">
+			<span class="Mines-body">50</span>
+		</div>
+		</div>
+		<div class="game-ctn">
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="js/saolei.js" ></script>
+	<script>
+		var Game = window.Game;
+		var game = new Game();
+		game._start();
+		
+	</script>
+</html>

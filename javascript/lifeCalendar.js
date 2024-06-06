@@ -156,7 +156,7 @@ function mouseEventOver() {
         if (event.target.classList.contains('inner-box')) {
             const date = event.target.getAttribute('data-date');
             const { years, months, weeks, days } = calculateTimeUntil(date);
-            const tooltipText = `남은 년도 : ${years}년<br>남은 월 : ${months}월<br>남은 주 : ${weeks}주<br>남은 일 : ${days}일`;
+            const tooltipText = `남은 년 : ${years}년<br>남은 월 : ${months}월<br>남은 주 : ${weeks}주<br>남은 일 : ${days}일`;
             showTooltip(event, tooltipText);
             showTooltip(event, tooltipText);
         }
