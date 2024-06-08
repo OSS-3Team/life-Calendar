@@ -39,6 +39,24 @@ header {
 	font-size: 15px;
 }
 
+a {
+	color: #424242;
+	text-decoration: none;
+}
+
+li a:hover,
+p a:hover {
+	border-bottom: 2px solid black;
+}
+
+body {
+	max-width: 1200px;
+	min-width: 1200px;
+	margin: auto;
+	background-color: #FAFAFA;
+	font-family: Arial, sans-serif;
+}
+
 .header
 {
 	display:block;
