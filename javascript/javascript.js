@@ -108,6 +108,14 @@ const languageData = {
         dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
             `${ampm} ${hours}:${minutes}:${seconds} | ${year}-${month}-${date} ${dayOfWeek}`,
         months: ['１月', '２月', '３月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    },
+    zh: {
+        am: '上午',
+        pm: '下午',
+        daysOfWeek: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+        dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
+            `${ampm} ${hours}:${minutes}:${seconds} | ${year}年${month}月${date}日 ${dayOfWeek}`,
+        months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
     }
 };
 
@@ -596,6 +604,19 @@ const translations = {
         save: "保存",
         font: "フォントを変更",
         theme_color: "テーマカラー"
+    },
+    zh: {
+        Login: "登录",
+        logout: "登出",
+        Sign_up: "创建账户",
+        select_date: "选择日期",
+        current_color: "当前颜色 :",
+        Delete_color: "删除颜色",
+        memo: "便签",
+        save: "保存",
+        font: "更改字体",
+        theme_color: "主题颜色",
+        current_date: "当前日期"
     }
 };
 
