@@ -29,6 +29,15 @@ header {
 	text-decoration-line: none;
 }
 
+.nav-list {
+	float: right;
+}
+
+.nav-list li {
+	display: inline;
+	margin: 0 20px;
+	font-size: 15px;
+}
 
 .header
 {
