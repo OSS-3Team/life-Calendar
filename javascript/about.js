@@ -49,6 +49,9 @@ const translations = {
     }
 };
 
+
+let currentLanguage = localStorage.getItem('language') || 'ko'; // 기본 언어 설정
+
 function updateText() {
     document.querySelectorAll('[data-key]').forEach(element => {
         const key = element.getAttribute('data-key');
@@ -57,13 +60,29 @@ function updateText() {
     });
 }
 
+
+
 function switchLanguage(lang) {
     if (!translations[lang]) {
         console.error(`No translations available for language: ${lang}`);
         return;
     }
-    currentLanguage = lang;
+    localStorage.setItem('language', lang);
+    currentLanguage = lang; // 이 부분을 먼저 처리합니다.
     console.log(`Language switched to: ${currentLanguage}`);
-    updateText(); // 텍스트 업데이트
-
+    updateLanguage(); // 언어 업데이트 함수 호출
 }
+
+function updateLanguage() {
+    // 로컬 스토리지에서 언어 가져오기, 기본값은 'ko'
+    const lang = localStorage.getItem('language') || 'ko';
+    // 여기서 각 페이지의 언어 설정 및 업데이트 로직을 수행
+    // 예를 들어, updateText(), updateTime() 등을 호출하여 페이지의 언어를 업데이트합니다.
+    updateText(); // 텍스트 업데이트
+    updateTime();
+}
+
+// 페이지가 로드될 때 언어 설정
+document.addEventListener('DOMContentLoaded', () => {
+    updateLanguage();
+});
