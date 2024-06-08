@@ -651,7 +651,11 @@ function updateLanguage() {
 }
 
 // 페이지가 로드될 때 언어 설정
-window.addEventListener('load', updateMonthNames);
+document.addEventListener('DOMContentLoaded', () => {
+    updateLanguage(); // 언어 설정 업데이트
+    //페이지가 완전히 로드된 후에 다시 호출하여 월 이름을 설정합니다.
+    window.addEventListener('load', updateMonthNames);
+});
 
 function updateMonthNames() {
     const monthNames = languageData[currentLanguage].months;
