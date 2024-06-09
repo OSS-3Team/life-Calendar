@@ -29,6 +29,7 @@ function changeTheme() {
 document.addEventListener('DOMContentLoaded', () => {
     unknownfunction();
     changeTheme();
+    AJAXRequest();
     const firstLink = document.querySelector('.service-link');
     if (firstLink) {
         firstLink.classList.add('active');
@@ -36,6 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    changeTheme();
-});
+// 로그인 여부에 따라 헤더 부분에 표기
+function AJAXRequest() {
+    // AJAX 요청으로 로그인 상태 확인
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../src/check_login.php', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.logged_in) {
+                document.getElementById('logout-item').style.display = 'inline';
+                loadColorInfomation();
+                loadTextInformation();
+            } else {
+                document.getElementById('login-item').style.display = 'inline';
+                document.getElementById('register-item').style.display = 'inline';
+            }
+        }
+    };
+    xhr.send();
+}
