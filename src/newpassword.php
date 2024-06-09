@@ -30,7 +30,7 @@ $stmt_check->execute();
 $result = $stmt_check->get_result();
 
 if ($result->num_rows == 0) {
-    echo "존재하지 않는 아이디입니다.";
+    header("Location: ../loginProcess/newpassword.php?error=아이디가 존재하지 않습니다.");
     $stmt_check->close();
     $con->close();
     exit;
