@@ -10,7 +10,7 @@ $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
 
 if ($password1 !== $password2) {
-    echo "비밀번호가 일치하지 않습니다.";
+    header("Location: ../loginProcess/newpassword.php?error=비밀번호가 일치하지 않습니다.");
     exit;
 }
 
@@ -42,8 +42,10 @@ $stmt_update->bind_param("ss", $hashed_password, $user_id);
 
 if ($stmt_update->execute()) {
     header("Location: ../loginProcess/newpassword.php?success=성공적으로 비밀번호가 변경되었습니다.");
+    exit();
 } else {
     header("Location: ../loginProcess/newpassword.php?error=비밀번호 변경하는데 오류가 발생했습니다.");
+    exit();
 }
 
 // 연결 종료
