@@ -127,3 +127,9 @@ footer {
     font-size: 15px;
     line-height: 50px;
 }
+
+.language{
+    display: flex;
+    justify-content: flex-start;
+    padding: 3px;
+}

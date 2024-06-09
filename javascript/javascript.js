@@ -108,10 +108,18 @@ const languageData = {
         dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
             `${ampm} ${hours}:${minutes}:${seconds} | ${year}-${month}-${date} ${dayOfWeek}`,
         months: ['１月', '２月', '３月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    },
+    zh: {
+        am: '上午',
+        pm: '下午',
+        daysOfWeek: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+        dateFormat: (ampm, hours, minutes, seconds, year, month, date, dayOfWeek) =>
+            `${ampm} ${hours}:${minutes}:${seconds} | ${year}年${month}月${date}日 ${dayOfWeek}`,
+        months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
     }
 };
 
-let currentLanguage = 'ko';
+let currentLanguage = localStorage.getItem('language') || 'ko'; // 기본 언어 설정
 
 
 function updateTime() {
@@ -596,8 +604,22 @@ const translations = {
         save: "保存",
         font: "フォントを変更",
         theme_color: "テーマカラー"
+    },
+    zh: {
+        Login: "登录",
+        logout: "登出",
+        Sign_up: "创建账户",
+        select_date: "选择日期",
+        current_color: "当前颜色 :",
+        Delete_color: "删除颜色",
+        memo: "便签",
+        save: "保存",
+        font: "更改字体",
+        theme_color: "主题颜色",
+        current_date: "当前日期"
     }
 };
+
 
 function updateText() {
     document.querySelectorAll('[data-key]').forEach(element => {
@@ -611,12 +633,29 @@ function switchLanguage(lang) {
         console.error(`No translations available for language: ${lang}`);
         return;
     }
-    currentLanguage = lang;
+    localStorage.setItem('language', lang);
+    currentLanguage = lang; // 이 부분을 먼저 처리합니다.
     console.log(`Language switched to: ${currentLanguage}`);
+    updateLanguage(); // 언어 업데이트 함수 호출
+}
+
+function updateLanguage() {
+    // 로컬 스토리지에서 언어 가져오기, 기본값은 'ko'
+    const lang = localStorage.getItem('language') || 'ko';
+    currentLanguage = lang;
+    // 여기서 각 페이지의 언어 설정 및 업데이트 로직을 수행
+    // 예를 들어, updateText(), updateTime() 등을 호출하여 페이지의 언어를 업데이트합니다.
     updateTime(); // 시간 업데이트
     updateText(); // 텍스트 업데이트
     updateMonthNames();
 }
+
+// 페이지가 로드될 때 언어 설정
+document.addEventListener('DOMContentLoaded', () => {
+    updateLanguage(); // 언어 설정 업데이트
+    //페이지가 완전히 로드된 후에 다시 호출하여 월 이름을 설정합니다.
+    window.addEventListener('load', updateMonthNames);
+});
 
 function updateMonthNames() {
     const monthNames = languageData[currentLanguage].months;
