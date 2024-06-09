@@ -37,6 +37,18 @@ if ($result->num_rows == 0) {
 }
 
 $sql = "UPDATE member SET password = ? WHERE user_id = ?";
+$stmt_update = $conn->prepare($sql_update);
+$stmt_update->bind_param("ss", $hashed_password, $user_id);
 
+if ($stmt_update->execute()) {
+    echo "비밀번호가 성공적으로 변경되었습니다.";
+} else {
+    echo "비밀번호 변경에 실패했습니다: " . $stmt_update->error;
+}
+
+// 연결 종료
+$stmt_update->close();
+$stmt_check->close();
+$conn->close();
 
 ?>
