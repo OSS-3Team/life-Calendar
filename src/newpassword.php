@@ -18,13 +18,13 @@ if ($password1 !== $password2) {
 $hashed_password = password_hash($password1, PASSWORD_DEFAULT);
 
 // 연결 확인
-if ($conn->connect_error) {
-    die("연결 실패: " . $conn->connect_error);
+if ($con->connect_error) {
+    die("연결 실패: " . $con->connect_error);
 }
 
 // 아이디 존재 여부 확인
-$sql_check = "SELECT * FROM member WHERE user_id = ?";
-$stmt_check = $conn->prepare($sql_check);
+$sql_check = "SELECT * FROM member WHERE id = ?";
+$stmt_check = $con->prepare($sql_check);
 $stmt_check->bind_param("s", $user_id);
 $stmt_check->execute();
 $result = $stmt_check->get_result();
@@ -32,23 +32,23 @@ $result = $stmt_check->get_result();
 if ($result->num_rows == 0) {
     echo "존재하지 않는 아이디입니다.";
     $stmt_check->close();
-    $conn->close();
+    $con->close();
     exit;
 }
 
-$sql = "UPDATE member SET password = ? WHERE user_id = ?";
-$stmt_update = $conn->prepare($sql_update);
+$sql = "UPDATE member SET password = ? WHERE id = ?";
+$stmt_update = $con->prepare($sql);
 $stmt_update->bind_param("ss", $hashed_password, $user_id);
 
 if ($stmt_update->execute()) {
-    echo "비밀번호가 성공적으로 변경되었습니다.";
+    header("Location: ../loginProcess/newpassword.php?success=성공적으로 비밀번호가 변경되었습니다.");
 } else {
-    echo "비밀번호 변경에 실패했습니다: " . $stmt_update->error;
+    header("Location: ../loginProcess/newpassword.php?error=비밀번호 변경하는데 오류가 발생했습니다.");
 }
 
 // 연결 종료
 $stmt_update->close();
 $stmt_check->close();
-$conn->close();
+$con->close();
 
 ?>
