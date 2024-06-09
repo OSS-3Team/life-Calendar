@@ -76,7 +76,7 @@ header {
 
 sidebar {
     width: 20%;
-    height: 1100px;
+    height: 1150px;
     float: left;
     background-color: #e1eaff;
     margin-bottom: 30px;
@@ -102,7 +102,7 @@ sidebar {
 
 main {
     width: calc(80% - 30px);
-    height: 1100px;
+    height: 1150px;
     float: right;
 }
 
