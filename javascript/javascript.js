@@ -670,6 +670,17 @@ function drawing() {
         isDrawing = false;
         context.closePath();
     }
+
+    function draw(event) {
+        if (!isDrawing) return;
+        const { x, y } = getMousePos(event);
+        context.lineWidth = 3;
+        context.lineCap = 'round';
+        context.strokeStyle = 'black';
+        context.lineTo(x, y);
+        context.stroke();
+    }
+
 }
 
 // 함수 실행 부분들
