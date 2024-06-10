@@ -650,19 +650,57 @@ function updateLanguage() {
     updateMonthNames();
 }
 
-// 페이지가 로드될 때 언어 설정
-document.addEventListener('DOMContentLoaded', () => {
-    updateLanguage(); // 언어 설정 업데이트
-    //페이지가 완전히 로드된 후에 다시 호출하여 월 이름을 설정합니다.
-    window.addEventListener('load', updateMonthNames);
-});
-
 function updateMonthNames() {
     const monthNames = languageData[currentLanguage].months;
     document.querySelectorAll('.month-name').forEach((element, index) => {
         element.textContent = monthNames[index];
     });
 }
+
+function drawing() {
+    const canvas = document.getElementById('drawingCanvas');
+    const context = canvas.getContext('2d');
+
+    canvas.width = canvas.offsetWidth;  // 실제 크기와 일치시키기 위해 설정
+    canvas.height = canvas.offsetHeight;  // 실제 크기와 일치시키기 위해 설정
+
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mousemove', draw);
+
+    function startDrawing(event) {
+        isDrawing = true;
+        context.beginPath();
+        const { x, y } = getMousePos(event);
+        context.moveTo(x, y);
+    }
+
+    function stopDrawing() {
+        isDrawing = false;
+        context.closePath();
+    }
+
+    function draw(event) {
+        if (!isDrawing) return;
+        const { x, y } = getMousePos(event);
+        context.lineWidth = 3;
+        context.lineCap = 'round';
+        context.strokeStyle = 'black';
+        context.lineTo(x, y);
+        context.stroke();
+    }
+
+    function getMousePos(event) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+        };
+    }
+}
+
 // 함수 실행 부분들
 document.addEventListener('DOMContentLoaded', () => {
     setShadowColor("green"); // 초기값은 green
@@ -679,5 +717,9 @@ document.addEventListener('DOMContentLoaded', () => {
     changeFont();
     AJAXRequest();
     dayColorSave();
+    drawing();
+    updateLanguage(); // 언어 설정 업데이트
+    //페이지가 완전히 로드된 후에 다시 호출하여 월 이름을 설정합니다.
+    window.addEventListener('load', updateMonthNames);
 });
 
