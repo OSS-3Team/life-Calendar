@@ -658,7 +658,18 @@ function updateMonthNames() {
 }
 
 function drawing() {
-    
+
+    function startDrawing(event) {
+        isDrawing = true;
+        context.beginPath();
+        const { x, y } = getMousePos(event);
+        context.moveTo(x, y);
+    }
+
+    function stopDrawing() {
+        isDrawing = false;
+        context.closePath();
+    }
 }
 
 // 함수 실행 부분들
