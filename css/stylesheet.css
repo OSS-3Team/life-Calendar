@@ -576,7 +576,6 @@ main {
     box-sizing: border-box;
     grid-template-columns: repeat(8, 1fr);
     place-items: center;
-    border-bottom: 2px solid black;
     padding: 5px 0;
 }
 
