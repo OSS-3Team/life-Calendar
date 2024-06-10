@@ -83,6 +83,14 @@ sidebar {
     margin-right: 30px;
 }
 
+canvas {
+    margin-top: 10px;
+    width: 99%;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color: white;
+}
 
 
 #select-day {
