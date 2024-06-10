@@ -658,6 +658,17 @@ function updateMonthNames() {
 }
 
 function drawing() {
+    const canvas = document.getElementById('drawingCanvas');
+    const context = canvas.getContext('2d');
+
+    canvas.width = canvas.offsetWidth;  // 실제 크기와 일치시키기 위해 설정
+    canvas.height = canvas.offsetHeight;  // 실제 크기와 일치시키기 위해 설정
+
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mousemove', draw);
 
     function startDrawing(event) {
         isDrawing = true;
