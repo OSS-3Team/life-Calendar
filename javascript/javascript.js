@@ -697,11 +697,20 @@ function drawing() {
     function draw(event) {
         if (!isDrawing) return;
         const { x, y } = getMousePos(event);
-        context.lineWidth = 3;
+
+        if (isErasing) {
+            context.strokeStyle = 'white';
+            context.lineWidth = 10; // 더 큰 폭으로 설정하여 지우기 효과를 높임
+        } else {
+            context.strokeStyle = 'black';
+            context.lineWidth = 3;
+        }
+
         context.lineCap = 'round';
-        context.strokeStyle = 'black';
         context.lineTo(x, y);
         context.stroke();
+        context.beginPath();
+        context.moveTo(x, y);
     }
 
     function getMousePos(event) {
