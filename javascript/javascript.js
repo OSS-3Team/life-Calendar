@@ -681,6 +681,13 @@ function drawing() {
         context.stroke();
     }
 
+    function getMousePos(event) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+        };
+    }
 }
 
 // 함수 실행 부분들
