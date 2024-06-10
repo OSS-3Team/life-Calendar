@@ -661,10 +661,22 @@ function drawing() {
     const canvas = document.getElementById('drawingCanvas');
     const context = canvas.getContext('2d');
 
+    const drawButton = document.getElementById('drawButton');
+    const eraseButton = document.getElementById('eraseButton');
+
     canvas.width = canvas.offsetWidth;  // 실제 크기와 일치시키기 위해 설정
     canvas.height = canvas.offsetHeight;  // 실제 크기와 일치시키기 위해 설정
 
     let isDrawing = false;
+    let isErasing = false;
+
+    drawButton.addEventListener('click', () => {
+        isErasing = false;
+    });
+
+    eraseButton.addEventListener('click', () => {
+        isErasing = true;
+    });
 
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mouseup', stopDrawing);
